@@ -44,30 +44,29 @@ but it contains multiple syntax errors that prevent it from being parsed.
 // 🔍 Provided JSON File with Errors
 // ============================================
 
-const invalidBookingJSON = `
+const invalidBookingJSON = //"const invalidBookingJSON =" is not a part of JSON.
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
+  "checkInDate": "2024-05-15", //A comma was forgotten. A comma is needed between each key/value pair, unless its the last one.
   "checkOutDate": "2024-05-20",
   "guests": [
     {
-      name: "Alice Johnson",
+      "name": "Alice Johnson", //name needed double quotations around it. Double quotes are required for all string values and key names.
       "age": 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
-      "email": "bob.smith@example"
+      "age": null, //changed undefined to null. Undefined is an unsupported type.
+      "email": "bob.smith@example.com" //.com was forgotten in the email string.
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"] //extra comma after "Parking". It's not needed.
   }
-}
-`;
+} //deleted the semi-colon, it isn't needed.
 
 
 // ============================================
@@ -91,11 +90,15 @@ const invalidBookingJSON = `
 💬 Reflect and answer the following:
 
 1️⃣ What tools or techniques did you use to identify the errors?
+I used the chapter lesson and JLint to help verify the errors.
 
 2️⃣ How did you confirm that your corrected JSON file was valid?
+JLint helped to confirm my JSON file was valid, it also pointed out mistakes I missed.
 
 3️⃣ Which errors were the most difficult to spot? Why?
+The errors that are okay in JavaScript was the most difficult to spot because in the JSON file it's being used exactly how it's supposed to, if the file was JavaScript.
 
 4️⃣ What strategies can help you avoid these kinds of errors in the future?
    (e.g., syntax highlighting, linters, writing JSON by example)
+Syntax highlighting and validators can help me avoid these kinds of errors in the future.
 */
